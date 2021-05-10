@@ -1,0 +1,3 @@
+
+def mondayize(date):
+    pass
