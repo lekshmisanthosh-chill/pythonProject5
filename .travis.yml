@@ -1,0 +1,19 @@
+language: python
+python:
+  - 3.8
+
+before_install:
+- echo -e "machine github.com\n  login $CI_USER_TOKEN" > ~/.netrc
+
+install:
+- pip install pipenv
+- pipenv install --dev --ignore-pipfile --deploy
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: TSRSDs4avxpfNkjZzLBl8eG9X/ZWOkVuRxIA5Sf0hdAYDna/XgJvzI6QsX354Pr3DxE2C1d5RBcz+O6oOP58p4Z2yAxbkxKxVXrf+yKlhQZLMcanWCqAu6fX6FiqksIL3kBl/QtkqnItJjNSvWZIx1LwIMJmXu+JtrC9358Qjf5VyTd+mU0hlpRg4IaBX3w1fSxS67jXUv9T2dFSWZ11pptmvwzP4llG3nmwwFCZJEtisoR67A+wVJhCn8K2jQB/OIt42nrPdz29I0WRtZ0ePFT7e77wh+cUrw/MQNQYWg97b4Ek7JSMcVTt3BqBlstfS9yAF4Z/6L8WHFFXLFr4fGLJUgNLyvRY9StpOl6N5vcJ9n9vR0VCKrD1l5EuJsozQJE6DxTTbdzaZhhQNc7P80FhbvUv4OUnH5P5AT5QchRuSzdbGlvGz6DBbG9SBZm3aPJI2mwB4IlIjOgCPXNC/wAKshUjplxkuW+wuYFFYUJhbKeV/IDZZthh8Ok7hM3MjGpQlnwKizl7bPE9R3E2s8wGvF7DZAWZ8IE+3B0PMWtfnBXmp9xCXva2GyOoeA5yc57U/1DorunakNjxyNvYbHVTzkALjZjf1KXMsUPi0OOKWzSh42MhdOZybZbGNSAldy8/HdOzeTM6VOiM04EEjmkOgifA4/yAYFe837gl2YM=
+  app: leks-test-project
+  on:
+    repo: lekshmisanthosh-chill/pythonProject5
+  skip_cleanup: 'true'

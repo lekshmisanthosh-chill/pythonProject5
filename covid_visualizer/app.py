@@ -33,7 +33,16 @@ def main():
         .properties(height=300, width=500)
     )
 
+    test_chart2 = (
+        alt.Chart(agg_data)
+            .mark_circle(color='orange')
+            .encode(x="handwashing_facilities", y="life_expectancy")
+            .properties(height=300, width=500, title='Yet another random chart')
+    )
+
     st.write(test_chart)
+    st.write(test_chart2)
+
 
 
 if __name__ == "__main__":
